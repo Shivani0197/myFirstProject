@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign up to {this}</title>
+        <Style type="text/css">
+		body {
+  font-family: Verdana, sans-serif;
+}
+
+input {
+	border-radius: 5px;
+	padding: 5px;
+}
+
+div.button {
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+	color: #e51;
+}
+
+form { 
+	width: 480px; 
+	margin: auto;
+	padding: 5px; 
+	border: solid black 1px;	
+	border-radius: 5px;  
+	box-shadow: 5px 5px 2px #888;
+	background:silver;
+}
+.button
+		{
+		background-color: #29a329;
+		color:#fff;
+		padding: 15px 20px;
+		margin: 10px 0px;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		text:bold;
+		}
+		
+		.header{
+		min-height:100vh;
+		width:100%;
+		background-image:linear-gradient(rgba(4,5,30,0.7),rgba(4,9,30,0.7)),url(images/college.jfif);
+		background-position:center;
+		background-size:cover;
+		position:relative;
+}
+h1{
+text-align:center;
+color:Blue;
+}
+.logo{
+padding:190px;}
+
+
+</style>
+        <script type="text/javascript" >
+		function validate() {  
+	var result = "";	
+	result += validateName(); 	
+	result += validateEmail();
+	result += validatePassword();
+	result += validateTerms();
+	
+	if (result == "") return true;
+	
+	alert("Validation Result:\n\n" + result);
+	return false;	
+}
+
+function validateName() {
+	var name = document.getElementsByName("name")[0].value;
+	if (name.length <= 3)
+		return "Name should be at least three characters.\n";	
+	return "";
+}
+
+function validatePassword() {
+	var password = valueOf("password");
+	var retype = valueOf("retype_password");
+	
+	if (password.length <= 6) 
+		return "Password should be at least 6 characters.\n";
+	
+	if (password != retype) 
+		return "Passwords do not match.\n";	
+	return "";
+}
+
+function validateEmail() {
+	var email = valueOf("email");
+	var retype = valueOf("retype_email");
+	
+	if (email.indexOf('@') == -1) 
+		return "Email should be a valid address.\n";
+	
+	if (email != retype)
+		return "Email addresses do not match.\n";
+	return "";	
+}
+
+function validateTerms() {
+	var terms = document.getElementsByName("terms")[0];
+	if (!terms.checked)
+		return "Please accept the Terms of Service and Privacy Policy";	
+	return "";
+}
+
+function valueOf(name) {
+	return document.getElementsByName(name)[0].value;
+}
+		</script>
+    </head>
+    <body>
+	<section class="header">
+	
+        
+        <form method="post" target="#" onsubmit="return validate()">
+		<a href="index.html" class="logo"><img src="images/logo.gif" width="90" height="90"></a>
+		<h1>Dr. RPCAU</h1>
+        <h3>Register</h3>
+        <p>Please fill in this form to create an account.</p>
+        
+      	Name<br>
+      	<input type="text" name="name"><br>
+        Email<br>
+	<input type="text" name="email"><br>
+        Retype email<br>
+      	<input type="text" name="retype_email"><br>
+        Create a password<br>
+	<input type="password" name="password"><br>
+        Retype password<br>
+	<input type="password" name="retype_password"><br>
+        
+        <label>
+          <input type="checkbox" name="terms">By creating an account you agree to our
+           <a href="#service">Terms of Service</a> and <a href="#policy">Privacy Policy</a>
+        </label>
+            
+      	
+          <button type="submit" class="button">Register</button>
+		  <p>Already have an account?<a href="#">Sign in</a></p>
+        
+        
+	</form>
+	</section>
+</body>
+</html>
